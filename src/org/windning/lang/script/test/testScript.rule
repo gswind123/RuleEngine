@@ -1,0 +1,27 @@
+{
+	"operations" : [
+		{
+			"name" : "expect: value of TestModel",
+			"fields":{
+				"content":"value"
+			},
+			"position":{
+				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
+			},
+			"condition" : "(900>800) AND (350 == 350)",
+			"execution" : "nativeAlert(content);"
+		},
+		{
+			"name" : "expect: 9",
+			"fields":{
+				"a":"5",
+				"b":"4"
+			},
+			"position":{
+				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
+			},
+			"condition" : "a>b",
+			"execution" : "nativeSum(a,b);"
+		}
+	]
+}
