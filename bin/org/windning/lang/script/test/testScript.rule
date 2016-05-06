@@ -14,13 +14,13 @@
 		{
 			"name" : "expect: 9",
 			"fields":{
-				"a":"5",
-				"b":"4"
+				"a":"4",
+				"b":"5"
 			},
 			"position":{
 				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
 			},
-			"condition" : "a>b",
+			"condition" : "a<b",
 			"execution" : "nativeSum(a,b);return true;"
 		}
 	]

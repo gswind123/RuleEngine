@@ -17,7 +17,7 @@ public class FieldArgument extends Argument{
 	public Constant getValue(BridgeContext context) throws RuleException {
 		NativeField field = context.getField(mExp);
 		if(field == null) {
-			throw new RuleException("Field "+mExp+" not found.");
+			throw new RuleException("Field ["+mExp+"] not found.");
 		}
 		try{
 			return new Constant(field.getValue().toString());
