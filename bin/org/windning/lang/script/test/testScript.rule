@@ -20,7 +20,7 @@
 			"position":{
 				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
 			},
-			"condition" : "a>=b",
+			"condition" : "a>b",
 			"execution" : "nativeSum(a,b);"
 		}
 	]

@@ -41,7 +41,8 @@ public class Rule {
 	        BridgeContext context = new BridgeContext();
 	        context.setField("rulecode", "7000");
 	        
-			String rule = "rulecode <= 8000";
+			String rule = "rulecode<8000";
+			System.out.println(getTokens(rule));
 			//BooleanExpression bool = Rule.parse( "(rulecode > 500) AND (bill_state = \"CA\") OR (bill_state = \"TX\")");
 			BooleanExpression bool = Rule.parse(context, rule);
 			
@@ -148,7 +149,7 @@ public class Rule {
 		ArrayList<String> al = new ArrayList<String>();
 		
 		String ntoken = null;
-		while( st.hasMoreTokens() ) {
+		while( st.hasMoreTokens() || ntoken != null ) {
 			String token = null;
 			if (ntoken != null) {
 				token = ntoken;

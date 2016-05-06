@@ -265,6 +265,11 @@ public class BasicExpression extends Expression {
 			}
 		} while((rhs == null));
 		
+		if(operator != null && rhs == null) {
+			throw new RuleException("Invalid boolean expression : ["+
+					lhs.getValue(context).toString()+","+operator+"]");
+		}
+		
 		BasicExpression basic = new BasicExpression(context, lhs, operator, rhs);
 		//basic.validate();
 		//System.out.println( "Just parsed: "+basic);
