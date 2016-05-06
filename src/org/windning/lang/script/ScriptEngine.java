@@ -200,7 +200,7 @@ public class ScriptEngine {
 				for(int i=0;i<args.length;i++) {
 					System.out.print(args[i]+"\t");
 				}
-				System.out.println("\n");
+				System.out.println("");
 			}
 		});
 		context.registerInterface("nativeSum", new NativeMethod() {
@@ -217,7 +217,7 @@ public class ScriptEngine {
 			ArrayList<OperationModel> optList = parseScript(script);
 			for(OperationModel optModel : optList) {
 				System.out.println("\n"+optModel.getName());
-				runOperation(optModel, context, nativeOwner);
+				System.out.println(runOperation(optModel, context, nativeOwner));
 			}
 		} catch (ScriptException e) {
 			e.printStackTrace();

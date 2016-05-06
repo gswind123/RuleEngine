@@ -36,8 +36,8 @@ public class ExecutionEngine {
 				continue;
 			}
 			Matcher returnMatcher = ReturnPattern.matcher(inst);
-			if(returnMatcher.find() && methodMatcher.groupCount()>=1) {
-				String value = methodMatcher.group(1);
+			if(returnMatcher.find() && returnMatcher.groupCount()>=1) {
+				String value = returnMatcher.group(1);
 				statements.add(new ExecuteReturn(Boolean.parseBoolean(value)));
 				hasReturnInst = true;
 			} else {
@@ -77,8 +77,8 @@ public class ExecutionEngine {
 		BridgeContext context = new BridgeContext();
 		TestModel nativeOwner = new TestModel();
 		nativeOwner.value = "a string in object";
-//		nativeOwner.childModel = new TestModel();
-//		nativeOwner.childModel.value = "a string in child model";
+		nativeOwner.childModel = new TestModel();
+		nativeOwner.childModel.value = "a string in child model";
 		context.setNativeOwner(nativeOwner);
 		try {
 			context.setField("content", "childModel.value");
@@ -86,7 +86,7 @@ public class ExecutionEngine {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		String code = "nativeAlert(content ,100);childFind(0)";
+		String code = "nativeAlert(content ,100);childFind(0);return 1";
 		ArrayList<Statement> statements;
 		try {
 			statements = parse(code, context);
@@ -98,6 +98,8 @@ public class ExecutionEngine {
 					for(Object param : params) {
 						System.out.println("\t"+param.getClass().getName()+"\t"+param.toString());
 					}
+				} else if (statement instanceof ExecuteReturn) {
+					System.out.println(((ExecuteReturn) statement).result);
 				}
 			}
 		} catch (ExecutionException e) {

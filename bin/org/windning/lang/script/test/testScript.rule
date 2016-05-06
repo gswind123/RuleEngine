@@ -9,7 +9,7 @@
 				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
 			},
 			"condition" : "(900>800) AND (350 == 350)",
-			"execution" : "nativeAlert(content);"
+			"execution" : "nativeAlert(content);return false;"
 		},
 		{
 			"name" : "expect: 9",
@@ -21,7 +21,7 @@
 				"before":"com.sun.windning.aspectinj.Windning.onCreate(Bundle)"
 			},
 			"condition" : "a>b",
-			"execution" : "nativeSum(a,b);"
+			"execution" : "nativeSum(a,b);return true;"
 		}
 	]
 }
